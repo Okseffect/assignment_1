@@ -1,0 +1,60 @@
+---
+title: "Assignment_1"
+author: "Oksana Rebrik"
+date: '6 окт€бр€ 2018 г '
+output: html_document
+---
+# Exercise 1
+C'est ma premiere experience d'utilisation Rstudio et ce n'est pas si facile qu'il y parait.
+
+# Exercise 2  
+ 
+
+#### Code Chunk 
+```{r}
+
+possible_outcomes <- c(0, 1, 2, 3, 4, 5)
+outcome_probabilities <- c(0.1, 0.5, 0.2, 0.1, 0.05, 0.05)
+n_data_points <- 400
+
+
+set.seed(1)
+fake_data_points <- sample(possible_outcomes,
+                           n_data_points,
+                           replace=T,
+                           prob=outcome_probabilities)
+set.seed(NULL)
+fake_data_set <- tibble::data_frame(`Fake measurement`=fake_data_points)
+
+ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) +
+ggplot2::geom_histogram(bins=5, colour="black", fill="lightgrey")
+
+ 
+#### Statement 1. possible_outcomes (ligne 1) 
+
+Cette ligne attribue un variable  **possible_outcomes**. Declaration de variable. Ce variable est un vecteur. Il nous permet de suivre une valeur.
+
+#### Statement 2. outcome_probabilities (Ligne 2) :   
+Cette linge attribue un variable **outcome_probabilites**. Nous supposons notre de resultat possible.
+
+#### Statement 3. n_data_points (Ligne 3) :  
+Nous initialison la valeur. Nous donnons a la variable sa valeur initiale. Nous indiquons que notre variable est correspond au nombre 400. 
+
+#### Statement 4. set.seed(1) (Ligne 4) et set.seed(NULL) (Ligne 6) :  
+
+Nous utilisons une function **set.seed(x)** pour creer un nombre fixe dans notre resultat.  
+
+#### Statement 5. fake_data_points (ligne 5) : 
+
+Le variable **fake_data_points** est une affectation de variable.
+Le variable **n_data_points** correspond a la taille de la sortie. 
+Le variable **prob** represente la probabilite de la variable de chaque chiffre **possible_outcomes**.  
+
+
+
+```
+
+# Exercise 3
+
+```{r echo=FALSE}
+source("function.R")
